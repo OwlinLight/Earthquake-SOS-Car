@@ -1,38 +1,66 @@
-# Earthquake-SOS-Car
+# SOS Car System with Rescue Team Recognition
 
-小车通过巡线模块沿线行驶，到达地震现场，当小车通过摄像设备探测识别到人脸时，在原地利用七彩灯和蜂鸣器装置发送SOS救助信号，在结束所有遇灾人员的探测和求助后，小车原路返回，返回到出发位置。重复执行小车求助，直到巡线结束。本次实验设计了1个救助点，中间过程调用1次人脸识别模块。
+The SOS Car System is a project aimed at developing an autonomous vehicle capable of navigating its way out of dangerous situations, sending distress signals, identifying rescue teams, and guiding them back to the location. This README provides an overview of the project, its features, and deployment details.
 
-![img](.\2. Docs\1. Images\clip_image008.jpg)
+## Table of Contents
 
-应用小车的巡线模块，当中央两个传感器感应到黑色线亮起时，小车巡线行走。
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Rescue Team Detection](#rescue-team-detection)
+- [Motor Control and Routing](#motor-control-and-routing)
+- [Deployment](#deployment)
 
-![img](.\2. Docs\1. Images\clip_image002.jpg)
+## Introduction
 
-图4.2-1 小车巡线左转
-当小车最左边检测到黑线，巡线左转
+The SOS Car System is designed to provide a self-contained solution for emergency situations where a vehicle needs to escape hazardous environments and seek help. The system is built on the Raspberry Pi 3 platform running Linux (Ubuntu) and utilizes various technologies to achieve its objectives.
 
-![img](.\2. Docs\1. Images\clip_image003.jpg)
+:tv: [Watch the SOS Car System in action](https://youtu.be/3ZVTaL1G0AA)
 
-图4.2-1 小车巡线左转
+## Features
 
-图4.2-3 小车巡线右转-直角
-当四个传感器都是检测到黑色，且前进5秒不变时，小车停止，进入下一阶段
+- Autonomous navigation in dangerous environments.
+- Distress signal activation and transmission.
+- Recognition of rescue team personnel.
+- Guiding rescue teams back to the vehicle's location.
 
-![img](.\2. Docs\1. Images\clip_image0024.jpg)
+## Technology Stack
 
-图4.2-3 小车停止
-LED等和蜂鸣器以长短长发出sos信号，并且摄像头开始拍摄。
+- Raspberry Pi 3
+- Linux (Ubuntu 20.04)
+- Python
+- OpenCV for rescue team detection
+- Motor control for vehicle movement
+- Routing algorithms for navigation
 
-![img](.\2. Docs\1. Images\clip_image005.jpg)
+## Installation
 
-图4.2-3 小车发出求救信号
-小车开始每秒截图，检测人脸的位置。
+1. Clone this repository to your Raspberry Pi 3.
+2. `cd 1.Code`, Install OpenCV for Python.
+3. run command `python run.py`.
+4. Connect the necessary hardware components, including motors and sensors, to the Raspberry Pi.
 
-![image-20220422211900704](.\2. Docs\1. Images\clip_image006.jpg)
+## Usage
 
-图4.2-3 小车识别人脸
-小车旋转180°，原路返回，寻找被困者。
+1. Run the main application script to start the SOS Car System.
+2. The system will assess its environment and autonomously navigate to a safe location.
+3. In case of danger, the distress signal can be activated manually or automatically.
+4. The rescue team recognition module will identify approaching rescue personnel.
 
-![img](.\2. Docs\1. Images\clip_image007.jpg)
+## Rescue Team Detection
 
-图4.2-3 小车原路返回
+Rescue team detection is achieved using OpenCV's cascade classifier. The system is trained to recognize specific visual cues associated with rescue team members. Upon detection, the system can alter its behavior to guide the rescue team to the vehicle's location.
+
+## Motor Control and Routing
+
+The motor control system is responsible for the movement of the vehicle. It interacts with the routing algorithms to ensure safe and efficient navigation. The routing algorithm takes into account the vehicle's current position, destination, and environmental data to determine the optimal path.
+
+## Deployment
+
+Deploying the SOS Car System involves setting up the Raspberry Pi 3 with the required software components. Ensure that all hardware components are properly connected and calibrated before deploying the system in hazardous environments.
+
+---
+
+For more information, issues, and inquiries, please contact us at 201806040620@zjut.edu.cn
